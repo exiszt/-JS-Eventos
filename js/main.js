@@ -1,14 +1,12 @@
 let indicePregunta = 0
 let puntaje = 0
-let usuario
-ingresarDatos()
+let devolucion
+let usuario = document.querySelector("#nombreusuario")
+let comenzar = document.querySelector("#comenzar")
 
-function ingresarDatos(){
-    usuario=prompt(`Ingrese su nombre`)
-    alert(`¡Bienvenido, ${usuario}! Presione "Aceptar" para continuar.`)
-}
-
-cargarPregunta(indicePregunta)
+usuario.onchange = () => {console.log(usuario.value)}
+comenzar.onclick = () => {
+    cargarPregunta(indicePregunta)
 
 function cargarPregunta(index) {
     objetoPregunta = base[index]
@@ -22,23 +20,29 @@ function cargarPregunta(index) {
     document.getElementById("opcion2").innerHTML = opciones[1]
     document.getElementById("opcion3").innerHTML = opciones[2]
     document.getElementById("opcion4").innerHTML = opciones[3]
+
+    opcion1.onclick = () => { elegir(0) }
+    opcion2.onclick = () => { elegir(1) }
+    opcion3.onclick = () => { elegir(2) }
+    opcion4.onclick = () => { elegir(3) }
 }
 
-function elegir(index){
+function elegir(index) {
     let validez = opciones[index] == objetoPregunta.respuesta
-    if(validez){
-        puntaje++ 
+    if (validez) {
+        puntaje++
         alert(`¡Correcto!`)
-    }else{
+    } else {
         alert(`Incorrecto. La respuesta correcta es "${objetoPregunta.respuesta}".`)
     }
 
     indicePregunta++
-    if (indicePregunta >= base.length){
-        alert(`${usuario}, tu puntaje es de: ${puntaje}/${base.length}`)
+    if (indicePregunta >= base.length) {
+        devolucion = document.querySelector("#devolucion").innerHTML=`${usuario.value}, tu puntaje es: ${puntaje}/${base.length}`
         indicePregunta = 0
         puntaje = 0
-    }else{
+    } else {
         cargarPregunta(indicePregunta)
     }
+}
 }

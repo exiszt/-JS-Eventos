@@ -8,18 +8,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <title>Pre-entrega 1</title>
+    <title>Trivia</title>
 </head>
 <body>
+    <div>
+        <input id="nombreusuario" placeholder="Ingrese su nombre" type="text" />
+        <button id="comenzar">Comenzar</button>
+    </div>
     <div>
         <div id="encabezado">
             <div id="pregunta"></div>
         </div>
-        <div class="opcion" id="opcion1" onclick="elegir(0)"></div>
-        <div class="opcion" id="opcion2" onclick="elegir(1)"></div>
-        <div class="opcion" id="opcion3" onclick="elegir(2)"></div>
-        <div class="opcion" id="opcion4" onclick="elegir(3)"></div>
+        <div class="opcion" id="opcion1"></div>
+        <div class="opcion" id="opcion2"></div>
+        <div class="opcion" id="opcion3"></div>
+        <div class="opcion" id="opcion4"></div>
     </div>
+    <div id="devolucion"></div>
 
     <script src="./js/base.js"></script>
     <script src="./js/main.js"></script>
